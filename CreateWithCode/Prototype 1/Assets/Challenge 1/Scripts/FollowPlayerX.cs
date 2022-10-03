@@ -16,6 +16,5 @@ public class FollowPlayerX : MonoBehaviour
     void LateUpdate()
     {
         transform.position = player.transform.position + offset;
-        transform.Rotate = player.transform.position + offset;
     }
 }
