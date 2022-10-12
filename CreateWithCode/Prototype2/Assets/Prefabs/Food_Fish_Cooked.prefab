@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6615504234301621222}
   - component: {fileID: 6615504234302604390}
   - component: {fileID: 6615504232929036824}
+  - component: {fileID: 3190879903862249351}
   m_Layer: 0
   m_Name: Food_Fish_Cooked
   m_TagString: Untagged
@@ -97,3 +98,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+--- !u!114 &3190879903862249351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6615504234300644568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54abdeaa951f7f0489f621dfd2c4c185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
