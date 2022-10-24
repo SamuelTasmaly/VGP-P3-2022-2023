@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Variables 
     private float speed = 20.0f;
     private float turnSpeed = 45.0f;
     private float horizontalInput;
@@ -25,5 +26,8 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward*Time.deltaTime*speed* forwardInput);
         // Rotate the car based on vertical input
         transform.Rotate(Vector3.up, turnSpeed *horizontalInput*Time.deltaTime);
+        if(Input.GetKeyDown(KeyCode.Space)){
+            //Launch projectile from player
+            Instantiate(Prop_Cone_01, transform.position, Prop_Cone_01.transform.rotation);}
     }
 }
