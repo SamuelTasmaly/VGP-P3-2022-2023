@@ -21,11 +21,11 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.right*horizontalInput* Time.deltaTime*speed);
 
         //keep player inbounds
-        if(transform.position.x < -10){
-            transform.position = new Vector3(-10, transform.position.y, transform.position.z);
+        if(transform.position.x < -14){
+            transform.position = new Vector3(-14, transform.position.y, transform.position.z);
         }
-        if(transform.position.x > 10){
-            transform.position = new Vector3(10, transform.position.y, transform.position.z);
+        if(transform.position.x > 14){
+            transform.position = new Vector3(14, transform.position.y, transform.position.z);
         }
         if(Input.GetKeyDown(KeyCode.Space)){
             //Launch projectile from player
