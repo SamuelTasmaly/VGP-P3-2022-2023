@@ -8,11 +8,9 @@ public class SpawnManagerX : MonoBehaviour
 
     private float spawnLimitXLeft = -22;
     private float spawnLimitXRight = 7;
-    private float spawnLimitYTop = 40;
+    private float spawnLimitYTop = 60;
     private float spawnLimitYBottom = 30;
-    private float spawnPosY = 30;
-
-    private 
+    //private float spawnPosY = 30;
 
     // Start is called before the first frame update
     void Start()
