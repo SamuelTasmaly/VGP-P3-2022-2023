@@ -35,8 +35,6 @@ public class PlayerControllerX : MonoBehaviour
             {transform.Rotate (new Vector3 (0, 0, 20) * Time.deltaTime*5);}
             if (Input.GetKey("x"))
             {transform.Rotate (new Vector3 (0,0,-20)* Time.deltaTime*5);}
-            while (Input.GetKey("w"))
-            {speed = 40;}
         
         if (Input.GetKey("l"))
             {speed = 1;}
