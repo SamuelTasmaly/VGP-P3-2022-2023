@@ -7,11 +7,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;
     public bool isOnGround = true;
     public bool gameOver = false;
+    private Animator playerAnim;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerAnim = GetComponent<Animator>();
+        
 
 
     }
@@ -22,7 +25,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround){
             playerRb.AddForce(Vector3.up * 50, ForceMode.Impulse);
             isOnGround = false;
-        }
+            playerAnim.SetTrigger("Jump_trig");
+          }
     }
     private void OnCollisionEnter(Collision collision){
         if (collision.gameObject.CompareTag("Ground"))
