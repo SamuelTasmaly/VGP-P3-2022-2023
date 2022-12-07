@@ -11,7 +11,7 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -28,4 +28,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
             speed = 10.0f;
     }
+    private void OnTriggerEnter(Collider other) {
+        speed = 0;
+      }
 }

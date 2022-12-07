@@ -8,12 +8,18 @@ public class PowerFloat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+      transform.Translate(Vector3.forward*Time.deltaTime*3);
+      transform.Translate(Vector3.forward*Time.deltaTime*0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate (new Vector3 (0, 0, 20) * Time.deltaTime*Rotatespeed);
+        transform.Rotate (new Vector3 (20, 0, 0) * Time.deltaTime*Rotatespeed);
+
     }
+    private void OnTriggerEnter(Collider other) {
+        Destroy(gameObject);
+        //Destroy(other.gameObject);
+      }
 }
