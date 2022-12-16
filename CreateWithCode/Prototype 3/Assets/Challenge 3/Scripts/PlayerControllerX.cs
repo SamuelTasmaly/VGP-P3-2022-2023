@@ -8,6 +8,7 @@ public class PlayerControllerX : MonoBehaviour
 
     public float floatForce;
     private float gravityModifier = 1.5f;
+    public float score = 0;
     public Rigidbody playerRb;
 
     public ParticleSystem explosionParticle;
@@ -21,6 +22,7 @@ public class PlayerControllerX : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("score: " +score);
         Physics.gravity *= gravityModifier;
         playerAudio = GetComponent<AudioSource>();
         playerRb = GetComponent<Rigidbody>();
@@ -52,8 +54,9 @@ public class PlayerControllerX : MonoBehaviour
             explosionParticle.Play();
             playerAudio.PlayOneShot(explodeSound, 1.0f);
             gameOver = true;
-            Debug.Log("Game Over!");
+            Debug.Log("Game Over! You made $" + score);
             Destroy(other.gameObject);
+
         }
 
         // if player collides with money, fireworks
@@ -62,6 +65,8 @@ public class PlayerControllerX : MonoBehaviour
             fireworksParticle.Play();
             playerAudio.PlayOneShot(moneySound, 1.0f);
             Destroy(other.gameObject);
+            score += 1;
+            Debug.Log("score: " + score);
 
         }
 
