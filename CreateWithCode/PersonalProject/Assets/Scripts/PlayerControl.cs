@@ -8,9 +8,14 @@ public class PlayerControl : MonoBehaviour
     private float turnSpeed = 60.0f;
     private float horizontalInput;
     private float forwardInput;
+    public Vector3 push;
+    public float PushForce = 5.0f;
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
+      rb = GetComponent<Rigidbody>();
+      push = new Vector3(0.0f, 0.0f, -1.0f);
 
     }
 
@@ -29,6 +34,6 @@ public class PlayerControl : MonoBehaviour
             speed = 10.0f;
     }
     private void OnTriggerEnter(Collider other) {
-        speed = 0;
+      rb.AddForce(push * PushForce, ForceMode.Impulse);
       }
 }
