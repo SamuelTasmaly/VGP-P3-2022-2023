@@ -35,6 +35,12 @@ public class PlayerController : MonoBehaviour
         powerupIndicator.gameObject.SetActive(true);
       }
     }
+    IEnumerator PowerupCountdownRoutine()
+    {
+      yield return new WaitForSeconds(7);
+      powerupIndicator.gameObject.SetActive(false);
+      hasPowerup = false;
+    }
       private void OnCollisionEnter(Collision collision)
       {
         if (collision.gameObject.CompareTag("Enemy") && hasPowerup)
@@ -45,10 +51,5 @@ public class PlayerController : MonoBehaviour
           enemyRigidbody.AddForce(awayFromPlayer * powerupStrength, ForceMode.Impulse);
         }
       }
-      IEnumerator PowerupCountdownRoutine()
-      {
-        yield return new WaitForSeconds(7);
-        powerupIndicator.gameObject.SetActive(false);
-        hasPowerup = false;
-      }
+
 }
