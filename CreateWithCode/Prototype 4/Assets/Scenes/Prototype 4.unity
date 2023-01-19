@@ -614,7 +614,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5211b4d436c0a064ea811a24b1ec95db, type: 2}
+  - {fileID: 2100000, guid: dcedce986773e974987bade0637656b5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -775,6 +775,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7508066676000680112, guid: d881bbfc18edff8458a051cfcf8a1b5d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 424d875591cb8e64fa9bff309cdada56, type: 2}
     - target: {fileID: 7521659602825757980, guid: d881bbfc18edff8458a051cfcf8a1b5d, type: 3}
       propertyPath: m_Name
       value: Gem_01
