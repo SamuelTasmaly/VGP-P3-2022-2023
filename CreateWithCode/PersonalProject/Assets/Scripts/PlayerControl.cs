@@ -15,7 +15,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
       rb = GetComponent<Rigidbody>();
-      push = new Vector3(0.0f, 0.0f, -1.0f);
+      push = new Vector3();
 
     }
 
