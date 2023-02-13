@@ -5,6 +5,8 @@ using UnityEngine;
 public class PowerFloat : MonoBehaviour
 {
     private float Rotatespeed = 1.0f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +20,9 @@ public class PowerFloat : MonoBehaviour
         transform.Rotate (new Vector3 (20, 0, 0) * Time.deltaTime*Rotatespeed);
 
     }
-    private void OnTriggerEnter(Collider other) {
-        Destroy(gameObject);
-        //Destroy(other.gameObject);
-      }
+
+
+
+
+
 }

@@ -7,6 +7,8 @@ public class PlayerControllerX : MonoBehaviour
     private Rigidbody playerRb;
     public float speed = 5000;
     public GameObject focalPoint;
+    public float score = 0;
+    //public float score;
 
     public bool hasPowerup;
   //  public GameObject powerupIndicator;
@@ -40,6 +42,8 @@ public class PlayerControllerX : MonoBehaviour
         {
             Destroy(other.gameObject);
             hasPowerup = true;
+            score++;
+            Debug.Log("Score: " + score);
     //        powerupIndicator.SetActive(true);
         }
     }
@@ -60,6 +64,9 @@ public class PlayerControllerX : MonoBehaviour
             Rigidbody enemyRigidbody = other.gameObject.GetComponent<Rigidbody>();
             Vector3 awayFromPlayer = other.gameObject.transform.position - transform.position;
 
+        }
+      }
+
   //          if (hasPowerup) // if have powerup hit enemy with powerup force
   //          {
   //              enemyRigidbody.AddForce(awayFromPlayer * powerupStrength, ForceMode.Impulse);
@@ -76,9 +83,8 @@ public class PlayerControllerX : MonoBehaviour
   //                StartCoroutine(PowerupCooldown());
   //          }
 
-        }
 
-    }
+
 
 
 
