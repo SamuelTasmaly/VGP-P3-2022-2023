@@ -8,6 +8,7 @@ public class PlayerControllerX : MonoBehaviour
     public float speed = 5000;
     public GameObject focalPoint;
     public float score = 0;
+    public float health = 20;
     //public float score;
 
     public bool hasPowerup;
@@ -20,6 +21,7 @@ public class PlayerControllerX : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Health: 20");
         playerRb = GetComponent<Rigidbody>();
         focalPoint = GameObject.Find("Focal Point");
     }
@@ -42,9 +44,13 @@ public class PlayerControllerX : MonoBehaviour
         {
             Destroy(other.gameObject);
             hasPowerup = true;
-            score++;
-            Debug.Log("Score: " + score);
+            health++;
+            Debug.Log("Health: " + health);
     //        powerupIndicator.SetActive(true);
+        }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+
         }
     }
 
@@ -61,8 +67,14 @@ public class PlayerControllerX : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            health--;
+            Debug.Log("Health: " + health);
             Rigidbody enemyRigidbody = other.gameObject.GetComponent<Rigidbody>();
             Vector3 awayFromPlayer = other.gameObject.transform.position - transform.position;
+            if (health <= 0)
+            {
+              Destroy(gameObject);
+            }
 
         }
       }
