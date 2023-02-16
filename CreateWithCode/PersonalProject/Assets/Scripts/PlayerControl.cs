@@ -26,7 +26,7 @@ public class PlayerControl : MonoBehaviour
         forwardInput = Input.GetAxis("Vertical");
         // Move the player forward based on vertical input
         transform.Translate(Vector3.forward*Time.deltaTime*speed* forwardInput);
-        // Rotate the player based on vertical input
+        // Rotate the player based on horizontal input
         transform.Rotate(Vector3.up, turnSpeed *horizontalInput*Time.deltaTime);
         if (Input.GetKey(KeyCode.LeftShift))
             speed = 20.0f;
