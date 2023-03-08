@@ -8,14 +8,19 @@ public class SpawnManager : MonoBehaviour
   public int enemyCount;
   public int waveNumber = 1;
   public GameObject powerupPrefab;
+  public float mass;
+  public float randMass;
+  //public Rigidbody enemyRb;
+  public string enemyRb = "Enemy";
+  //public GameObject enemy;
     // Start is called before the first frame update
     void Start()
     {
+      //enemy = GameObject.CompareTag("Enemy");
+      //enemyRb = GameObject.FindWithTag(enemy).GetComponent<Rigidbody>();
       SpawnEnemyWave(waveNumber);
+      //player = GameObject.FindWithTag(Player).transform;
       Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
-
-
-
     }
 
     // Update is called once per frame
@@ -29,6 +34,7 @@ public class SpawnManager : MonoBehaviour
         SpawnEnemyWave(waveNumber);
         Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
       }
+
     }
     private Vector3 GenerateSpawnPosition()
     {
@@ -42,6 +48,8 @@ public class SpawnManager : MonoBehaviour
       for (int i = 0; i < enemiesToSpawn; i++)
       {
         Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+        //enemyRb.mass = Random.Range(1,3);
       }
     }
+
 }

@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     public bool hasPowerup;
     private float powerupStrength = 15.0f;
     public GameObject powerupIndicator;
+    public float jumpForce = 10;
+    public Vector3 jump;
+
     // Start is called before the first frame update
     void Start(){
 
@@ -25,15 +28,21 @@ public class PlayerController : MonoBehaviour
       playerRb.AddForce(focalPoint.transform.forward * speed * forwardInput);
       powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
 
+      //if(Input.GetKeyDown()){
+
+          //rb.AddForce(jump * jumpForce, ForceMode.Impulse);}
+
+
     }
     private void OnTriggerEnter(Collider other)
     {
-      if (other.CompareTag("Powerup"))
+      if (other.CompareTag("Powerup"))// && Key.GetDown())
       {
         hasPowerup = true;
         Destroy(other.gameObject);
         powerupIndicator.gameObject.SetActive(true);
       }
+
     }
     IEnumerator PowerupCountdownRoutine()
     {
