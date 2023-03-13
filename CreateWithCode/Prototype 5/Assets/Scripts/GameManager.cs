@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
       StartCoroutine(SpawnTarget());
       score = 0;
       scoreText.text = "Score: " + score;
+
     }
 
 
