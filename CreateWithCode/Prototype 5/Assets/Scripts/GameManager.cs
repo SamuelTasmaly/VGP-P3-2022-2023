@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
       StartCoroutine(SpawnTarget());
       score = 0;
       UpdateScore(0);
-      gameOverText.gameObject.SetActive(false);
+      //gameOverText.gameObject.SetActive(false);
       isGameActive = true;
     }
 
