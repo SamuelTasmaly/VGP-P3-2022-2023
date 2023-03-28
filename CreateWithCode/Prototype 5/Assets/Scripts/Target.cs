@@ -13,6 +13,8 @@ public class Target : MonoBehaviour
     private float maxTorque = 10;
     private float xRange = 4;
     private float ySpawnPos = -2;
+    public float lives = 5;
+    public bool isBad;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +36,13 @@ public class Target : MonoBehaviour
 
     private void OnMouseDown()
     {
-
+      if (isBad == true)
+      {
+        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+        Destroy(gameObject);
+        gameManager.UpdateLives(-1);
+        //gameManager.GameOver();
+      }
       if (gameManager.isGameActive)
       {
         Destroy(gameObject);
@@ -47,11 +55,21 @@ public class Target : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
       Destroy(gameObject);
-      if(pointValue > 0)
-        {
-          gameManager.GameOver();
-        }
-      //if (!GameObject.CompareTag("Bad")){gameManager.GameOver();}
+      if (isBad == false && gameManager.isGameActive)
+      {
+        gameManager.UpdateLives(-1);
+      //  gameManager.GameOver();
+      }
+}
+
+    public void DestroyTarget()
+    {
+      if (gameManager.isGameActive)
+      {
+        Destroy(gameObject);
+        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+        gameManager.UpdateScore(pointValue);
+      }
     }
     // Update is called once per frame
     void Update()
