@@ -230,7 +230,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d763c7914f6733a43a801b18f89f5f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 196804865743444836, guid: 3bd1a47a6aa354b4c8af198133b647d4, type: 3}
+  enemyPrefabs:
+  - {fileID: 196804865743444836, guid: 3bd1a47a6aa354b4c8af198133b647d4, type: 3}
+  - {fileID: 196804865743444836, guid: ea8403b8a8eed7d499afe1b4bf632947, type: 3}
   enemyCount: 0
   waveNumber: 1
   powerupPrefab: {fileID: 7521659602825757980, guid: d881bbfc18edff8458a051cfcf8a1b5d, type: 3}
@@ -696,7 +698,6 @@ MonoBehaviour:
   powerupIndicator: {fileID: 1945970503}
   jumpForce: 10
   jump: {x: 0, y: 0, z: 0}
-  mass: 0
 --- !u!54 &1426984320
 Rigidbody:
   m_ObjectHideFlags: 0

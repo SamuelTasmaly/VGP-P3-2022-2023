@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PlayerControllerX : MonoBehaviour
 {
     private Rigidbody playerRb;
@@ -9,8 +11,10 @@ public class PlayerControllerX : MonoBehaviour
     public GameObject focalPoint;
     public float score = 0;
     public float health = 20;
-    //public float score;
-
+    public TextMeshProUGUI healthText;
+    public GameObject gameOverText;
+    public GameObject wall;
+    public GameObject hurtPanel;
     public bool hasPowerup;
   //  public GameObject powerupIndicator;
     public int powerUpDuration = 5;
@@ -46,12 +50,10 @@ public class PlayerControllerX : MonoBehaviour
             hasPowerup = true;
             health++;
             Debug.Log("Health: " + health);
+            healthText.text = "Health: " + health;
     //        powerupIndicator.SetActive(true);
         }
-        if (other.gameObject.CompareTag("Enemy"))
-        {
 
-        }
     }
 
     // Coroutine to count down powerup duration
@@ -63,20 +65,39 @@ public class PlayerControllerX : MonoBehaviour
     }
 
     // If Player collides with enemy
+
+    IEnumerator PowerupCountdownRoutine()
+    {
+
+      yield return new WaitForSeconds(1);
+      hurtPanel.SetActive(false);
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            hurtPanel.SetActive(true);
+          //  PowerupCountdownRoutine
+
             health--;
             Debug.Log("Health: " + health);
+            healthText.text = "Health: " + health;
             Rigidbody enemyRigidbody = other.gameObject.GetComponent<Rigidbody>();
             Vector3 awayFromPlayer = other.gameObject.transform.position - transform.position;
             if (health <= 0)
             {
               Destroy(gameObject);
+              gameOverText.SetActive(true);
             }
+            hurtPanel.SetActive(false);
 
         }
+        if (other.gameObject.CompareTag("Button"))
+        {
+          wall.SetActive(true);
+        }
+
       }
 
   //          if (hasPowerup) // if have powerup hit enemy with powerup force

@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - focalPoint
   - Powerup
+  - Wall
+  - Button
   layers:
   - Default
   - TransparentFX

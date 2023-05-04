@@ -4,35 +4,39 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-  public GameObject enemyPrefab;
+  public GameObject enemyPrefabs;
   public int enemyCount;
   public int waveNumber = 1;
-  public GameObject powerupPrefab;
+  public GameObject powerupPrefabs;
   public float mass;
   public float randMass;
   //public Rigidbody enemyRb;
   public string enemyRb = "Enemy";
-  //public GameObject enemy;
+  //public GameObject enemky;
     // Start is called before the first frame update
     void Start()
     {
+      int randomPowerup = Random.Range(0, powerupPrefabs.Length);
+      Instantiate(powerupPrefabs[randomPowerup], GenerateSpawnPosition(), powerupPrefabs[randomPowerup].transform.rotation);
       //enemy = GameObject.CompareTag("Enemy");
       //enemyRb = GameObject.FindWithTag(enemy).GetComponent<Rigidbody>();
       SpawnEnemyWave(waveNumber);
       //player = GameObject.FindWithTag(Player).transform;
-      Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
+      Instantiate(powerupPrefabs, GenerateSpawnPosition(), powerupPrefabs.transform.rotation);
     }
 
     // Update is called once per frame
     void Update()
     {
       //Instantiate(enemyPrefab, new Vector3(0,0,6), enemyPrefab.transform.rotation);
-      enemyCount = FindObjectsOfType<Enemy>().Length;
+      //enemyCount = FindObjectsOfType<Enemy>().Length;
       if (enemyCount == 0)
       {
         waveNumber++;
         SpawnEnemyWave(waveNumber);
-        Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
+        Instantiate(powerupPrefabs, GenerateSpawnPosition(), powerupPrefabs.transform.rotation);
+        int randomPowerup = Random.Range(0, powerupPrefabs.Length);
+        Instantiate(powerupPrefabs[randomPowerup], GenerateSpawnPosition(), powerupPrefabs[randomPowerup].transform.rotation);
       }
 
     }
@@ -47,7 +51,9 @@ public class SpawnManager : MonoBehaviour
     {
       for (int i = 0; i < enemiesToSpawn; i++)
       {
-        Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+        int randomEnemy = Random.Range(0, enemyPrefabs.Length);
+
+        Instantiate(enemyPrefabs[randomEnemy], GenerateSpawnPosition(), enemyPrefabs[randomEnemy].transform.rotation);
         //enemyRb.mass = Random.Range(1,3);
       }
     }
